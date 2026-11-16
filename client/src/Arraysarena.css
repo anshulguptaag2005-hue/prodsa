@@ -1,0 +1,197 @@
+.arena-container {
+    background: #101326;
+    color: white;
+    min-height: 100vh;
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+.arena-header {
+    margin-bottom: 30px;
+}
+
+.arena-tag {
+    color: #a18aff;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.arena-header h1 {
+    font-size: 36px;
+    margin: 15px 0;
+}
+
+.arena-header p {
+    color: #a6abc5;
+}
+
+.arena-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.arena-stat {
+    background: #202644;
+    border: 1px solid #343c65;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.arena-stat h3 {
+    color: #aaaed0;
+    font-size: 12px;
+}
+
+.arena-stat h2 {
+    font-size: 26px;
+    color: #a18aff;
+}
+
+.challenge-heading {
+    margin-bottom: 20px;
+}
+
+.difficulty-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.difficulty-tabs button {
+    padding: 11px 25px;
+    border-radius: 8px;
+    border: 1px solid #41486c;
+    background: #202644;
+    color: white;
+    cursor: pointer;
+}
+
+.difficulty-tabs button.selected {
+    background: #7565ff;
+    border-color: #7565ff;
+}
+
+.challenge-list {
+    display: grid;
+    gap: 15px;
+}
+
+.challenge-card {
+    background: #202644;
+    border: 1px solid #343c65;
+    border-radius: 13px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.challenge-card:hover {
+    border-color: #8b85ff;
+    transform: translateX(5px);
+}
+
+.challenge-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.challenge-number {
+    background: #343b62;
+    padding: 12px;
+    border-radius: 10px;
+    color: #a18aff;
+}
+
+.challenge-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.challenge-info p {
+    color: #aaaed0;
+    font-size: 13px;
+}
+
+.challenge-button,
+.complete-button {
+    background: linear-gradient(90deg, #7167ff, #9b65ff);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.question-detail {
+    background: #202644;
+    border: 1px solid #454c75;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.question-detail p {
+    color: #b4b9d4;
+    margin: 25px 0;
+}
+
+.question-detail span {
+    color: #a18aff;
+}
+
+.back-button {
+    background: transparent;
+    border: none;
+    color: #a18aff;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.complete-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+@media (max-width: 650px) {
+    .arena-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .challenge-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .arena-container {
+        padding: 20px;
+    }
+}
+.empty-realm {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 42px 20px;
+  border: 1px solid #343c65;
+  border-radius: 16px;
+  background: #171c34;
+  color: #f2efff;
+  text-align: center;
+}
+
+.empty-realm span {
+  font-size: 32px;
+}
+
+.empty-realm h3,
+.empty-realm p {
+  margin: 0;
+}
+
+.empty-realm p {
+  color: #a6abc5;
+}

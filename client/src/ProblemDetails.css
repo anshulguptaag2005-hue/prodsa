@@ -1,0 +1,135 @@
+.problem-container {
+    background: #101326;
+    color: white;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.problem-back {
+    background: transparent;
+    color: #a18aff;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.problem-header {
+    margin-bottom: 30px;
+}
+
+.problem-header > span {
+    color: #a18aff;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.problem-header h1 {
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.problem-reward {
+    display: flex;
+    gap: 15px;
+}
+
+.problem-reward span {
+    background: #292f4c;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #b9adff;
+    font-size: 13px;
+}
+
+.problem-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.problem-description,
+.code-section {
+    background: #202644;
+    border: 1px solid #343c65;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.problem-description h2 {
+    margin-top: 0;
+}
+
+.problem-description p,
+.problem-description li {
+    color: #c0c4dc;
+    line-height: 1.7;
+}
+
+.problem-description h3 {
+    margin-top: 25px;
+}
+
+.example-box {
+    background: #151a30;
+    padding: 12px;
+    border-radius: 9px;
+}
+
+.mission-box {
+    background: #30285b;
+    border: 1px solid #7167ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #b9adff;
+    font-weight: bold;
+}
+
+.code-editor {
+    width: 100%;
+    height: 350px;
+    box-sizing: border-box;
+    background: #111629;
+    color: #b9e6c9;
+    border: 1px solid #454c75;
+    border-radius: 10px;
+    padding: 15px;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+.editor-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.run-button,
+.submit-button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    background: #454c75;
+}
+
+.submit-button {
+    background: linear-gradient(90deg, #7167ff, #9b65ff);
+}
+
+@media (max-width: 850px) {
+    .problem-content {
+        grid-template-columns: 1fr;
+    }
+}

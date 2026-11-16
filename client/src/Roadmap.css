@@ -1,0 +1,123 @@
+.roadmap-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px;
+    background: #101326;
+    color: white;
+    box-sizing: border-box;
+}
+
+.roadmap-header {
+    margin-bottom: 35px;
+}
+
+.roadmap-tag {
+    color: #8b85ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.roadmap-header h1 {
+    font-size: 36px;
+    margin: 12px 0;
+}
+
+.roadmap-header p {
+    color: #a6abc5;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.topic-card {
+    background: linear-gradient(145deg, #202644, #171c34);
+    border: 1px solid #343c65;
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.3s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-6px);
+    border-color: #8b85ff;
+    box-shadow: 0 8px 30px rgba(108, 99, 255, 0.2);
+}
+
+.topic-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topic-icon {
+    font-size: 35px;
+    background: #30375c;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.topic-number {
+    color: #a6abc5;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.topic-card h2 {
+    margin-top: 22px;
+    font-size: 22px;
+}
+
+.topic-card > p {
+    color: #a6abc5;
+    font-size: 14px;
+}
+
+.difficulty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0;
+    font-size: 12px;
+}
+
+.difficulty span {
+    background: #292f4c;
+    padding: 7px 10px;
+    border-radius: 7px;
+    color: #c5c9e2;
+}
+
+.start-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #7167ff, #9b65ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 18px rgba(113, 103, 255, 0.4);
+}
+
+@media (max-width: 750px) {
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roadmap-container {
+        padding: 20px;
+    }
+
+    .roadmap-header h1 {
+        font-size: 27px;
+    }
+}
