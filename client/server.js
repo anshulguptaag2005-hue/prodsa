@@ -4,8 +4,13 @@ import session from 'express-session';
 import connectPgSimple from 'connect-pg-simple';
 import { pool } from './db.js';
 import bcrypt from 'bcryptjs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json({ limit: '50kb' }));
+app.use(express.static(path.join(__dirname, 'dist')));
 const PgSessionStore = connectPgSimple(session);
 
 if (!process.env.SESSION_SECRET) {
@@ -184,10 +189,11 @@ app.get('/api/progress', async (req, res) => {
     );
     const trainingXP = Number(trainingRows[0].training_xp);
 
-    res.json({
+        res.json({
       completedChallengeIds: dsaRows.map((row) => Number(row.challenge_id)),
       totalXP: dsaXP + trainingXP,
-      trainingXP,dsaXP,
+      trainingXP,
+      dsaXP,
       correctTrainingAnswers: Number(trainingRows[0].correct_training_answers),
     });
   } catch (error) {
@@ -234,31 +240,30 @@ async function runCpp(sourceCode, stdin) {
   throw new Error('Runner took too long. Try again.');
 }
 
-app.get('/api/challenges', async (req, res) => {
+ app.get('/api/challenges', async (req, res) => {
   try {
-    
-   const { rows } = await pool.query(`
-  SELECT
-    c.id,
-    c.title,
-    c.topic,
-    c.difficulty,
-    c.xp_reward,
-    c.problem_statement,
-    (
-      SELECT json_build_object(
-        'input', tc.input_data,
-        'output', tc.expected_output
-      )
-      FROM challenge_test_cases AS tc
-      WHERE tc.challenge_id = c.id
-        AND tc.case_type = 'sample'
-      ORDER BY tc.display_order, tc.id
-      LIMIT 1
-    ) AS sample_case
-  FROM challenges AS c
-  ORDER BY c.id
-`);
+    const { rows } = await pool.query(`
+      SELECT
+        c.id,
+        c.title,
+        c.topic,
+        c.difficulty,
+        c.xp_reward,
+        c.problem_statement,
+        (
+          SELECT json_build_object(
+            'input', tc.input_data,
+            'output', tc.expected_output
+          )
+          FROM challenge_test_cases AS tc
+          WHERE tc.challenge_id = c.id
+            AND tc.case_type = 'sample'
+          ORDER BY tc.display_order, tc.id
+          LIMIT 1
+        ) AS sample_case
+      FROM challenges AS c
+      ORDER BY c.id
+    `);
 
     res.json(rows);
   } catch (error) {
@@ -901,6 +906,8 @@ app.post('/api/training/sessions/:sessionId/answer', async (req, res) => {
 
 
 
-app.listen(3001, () => {
-  console.log('Backend running at http://localhost:3001');
+const port = process.env.PORT || 3001;
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend running on port ${port}`);
 });
