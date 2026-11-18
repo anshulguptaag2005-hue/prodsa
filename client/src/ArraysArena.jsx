@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './ArraysArena.css';
+import "./Arraysarena.css";
 import ProblemDetails from './ProblemDetails';
 
 function rankFromXP(xp) {
